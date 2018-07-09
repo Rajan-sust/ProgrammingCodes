@@ -344,6 +344,7 @@ Literal :
 long long int - LL
 unsigned long long int - ULL
 ==========================================================
+unordered_map:
 
 #include <bits/stdc++.h>
 
@@ -368,3 +369,5 @@ int main(){
 unordered_map<int,int>mp;
 mp.reserve(size);
 mp.max_load_factor(0.25);
+
+===================================================================================
