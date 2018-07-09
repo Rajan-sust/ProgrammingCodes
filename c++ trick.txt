@@ -1,0 +1,370 @@
+Header File:
+
+#include <cstdio>
+#include <sstream>
+#include <cstdlib>
+#include <cctype>
+#include <cmath>
+#include <algorithm>
+#include <set>
+#include <queue>
+#include <stack>
+#include <list>
+#include <iostream>
+#include <fstream>
+#include <numeric>
+#include <string>
+#include <vector>
+#include <cstring>
+#include <map>
+#include <iterator>
+#include <iomanip> 
+using namespace std;
+
+===============================================================================
+printf("%lld%c", v[i].second, " \n"[i + 1 == n]);
+
+===============================================================================
+
+pbds:
+
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
+using namespace __gnu_pbds;
+using namespace std;
+
+template <typename T>
+using Set =
+    tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
+erase example:
+
+
+    Set<int>ss;
+	ss.insert(3);
+	ss.insert(11);
+	ss.insert(23);
+	
+	int pos = ss.order_of_key(11);
+	ss.erase(ss.find_by_order(pos));
+
+Member : 
+
+1.find_by_order() - returns an iterator to the k-th largest element (counting from zero)
+2.order_of_key()  - the number of items in a set that are strictly smaller than our item
+3.find and erase - as like as simple set
+
+Left to right how many numbers exist:
+int ans = s.order_of_key(R+1)-s.order_of_key(L);
+========================================================================
+
+straight line:
+a = y2-y1;
+b = x1-x2;
+c = x2*y1-x1*y2;
+
+==========================================================================
+inline bool dcmp(double x,double y)
+{
+  return (abs(x-y)<= 1e-9);
+	
+}
+==========================================================================
+
+complex structure:
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+#define x() real() 
+#define y() imag()
+
+typedef complex<double> point;
+
+double dot(const point &a, const point &b) { return (conj(a) * b).x(); }
+double cross(const point &a, const point &b) { return (conj(a) * b).y(); }
+
+point intersect(const point &a, const point &b, const point &p, const point &q) {
+    double d1 = cross(p - a, b - a),d2 = cross(q - a, b - a);
+    return (d1 * q - d2 * p) / (d1 - d2);
+}
+
+===========================================================================
+
+auto cmp = [](const pt &a,const pt &b) {if(a.x()==b.x())return a.y()<b.y();
+    		return a.x()<b.x();};
+map<pt,int,decltype(cmp)>mp(cmp);
+
+
+===========================================================================
+bigmod:
+#include <bits/stdc++.h>
+#include <ext/numeric>
+using namespace std;
+using namespace __gnu_cxx;
+
+struct number {
+    int value;
+    number(int value) : value(value) {}
+};
+
+number operator*(const number &a, const number &b) {
+    return (1LL * a.value * b.value) % 1000000007;
+}
+
+int main () {
+    
+    cout << power( number(2), 1234567890 ).value << endl;
+}
+====================================================================
+
+Set left to right delete:
+
+set<int>s{2,4,8,9,13,16,18,19,21};
+	int l = 10;
+	int r = 20;
+
+	auto it = s.lower_bound(l);
+
+	while(it!=s.end())
+	{
+		int val = *it;
+		if(val>r)
+			break;
+		it = s.erase(it); //set erase function returns Iterator following the last removed element.
+	}
+
+
+===========================================================================
+
+    map<string,set<string>> mp;
+
+	mp["Bangladesh"].insert("Dhaka");
+	mp["Bangladesh"].insert("Sylhet");
+	mp["India"].insert("Kolkata");
+	
+
+	for(auto i: mp){
+		
+		auto var1 = i.first;//key 
+		auto var2 = i.second;//val
+	}
+
+
+
+
+================================================================================
+
+suffix generate:
+
+std::string str = "Topcoder";
+string pointer = &str[1];
+cout<<pointer<<'\n';
+
+
+
+===============================================================================
+Bitset : binary printing
+bitset<5>bs(31);
+cout<<bs<<'\n';
+
+================================================================================
+
+Time calculation:
+double cl = clock();//first line
+
+cl = clock() - cl;//last line
+printf("Total Execution Time = %lf seconds\n", cl / CLOCKS_PER_SEC);//last line
+==================================================================================
+
+cout<<fixed<<setprecision(15)<<num<<'\n';
+
+
+#DEBUG:
+
+#define debug(x) cerr<<#x<<" is "<<(x)<<'\n'
+
+******************************
+
+#Lambda count_if:
+
+int cnt = count_if(a.begin(),a.end(),[](int x){return x%2==1 ;});
+
+#lambda sort
+int val[100000];
+sort(v.begin(),v.end(),[&](int a,int b){ return val[a]<val[b]; });
+
+******************************
+
+
+
+Format:
+for(i = 1; i <= n; i++)
+    for(j = 1; j <= m; j++)
+        cout << a[i][j] << " \n"[j == m];
+
+And here is the reason: " \n" is a char*, " \n"[0] is ' ' and " \n"[1] is '\n'.
+
+******************************
+
+
+
+Escape seq:
+for cand c++: To print escape sequence you should use extra:\
+c++ Raw string: R"(......)";
+
+******************************
+
+Output format:
+c style:
+print("%03d",num)
+c++ style:
+1.cout << std::setfill ('x') <<setw (10)<<num<<'\n';
+2.stringstream ss;
+ss<< std::setfill ('x') <<setw (10)<<num;
+
+[such as for leading zero 'x' can be '0']
+
+if(num<100) it will print extra zero
+print("%3d",num)
+if(num<10) it will prinr extra space
+
+******************************
+
+multimap:Same key more value access:
+
+std::multimap<int, char> mp {
+        {1, 'A'},
+        {2, 'B'},
+        {2, 'C'},
+        {2, 'D'},
+        {4, 'E'},
+        {3, 'F'}
+    };
+ 
+    auto range = mp.equal_range(2);
+ 
+    for (auto i = range.first; i != range.second; ++i){
+        std::cout << i->first << ": " << i->second << '\n';
+    }
+
+******************************
+operator overloading:
+Box operator+(const Box& b) {
+
+  Box var;
+  ...blah blah blah ........
+  return var
+         
+}
+
+********************************
+set::lower_bound
+s.lower_bound(key)
+point the first element>=key
+
+********************************
+
+cin always ignore blank line
+
+********************************
+in compare function:
+<= or>= operator can not be used together
+********************************
+
+***********************
+c language input:
+
+scanf(" %c",&ch);
+
+Its ignores all escape
+sequence such enter,
+new line,whitespace.
+
+scanf(" %[^\n]",str);
+for taking string one line read with space
+
+***********************
+
+**********************
+c++ char add in string
+s+=char('0'+(0~9));
+*********************
+
+
+*******************
+Unique :
+
+vector<int>v{2,3,4,4,4,1,1};
+sort(v.begin(),v.end());
+
+v.erase(unique(v.begin(),v.end()),v.end());
+
+2d vector intialize:
+vector<double> line(n+1,0);
+vector< vector<double> > A(n,line);
+
+*******************
+
+*********************
+#define li int_fast64_t
+*********************
+
+*********************
+long double x;
+scanf("%Lf",&x);
+*********************
+
+
+*********************
+map<string,int>mp;
+for(__typeof(mp.begin()) it = mp.begin();it!=mp.end();it++) {....}
+==========================================================
+list splice trick:
+
+http://codeforces.com/group/L1Sf9F4uBt/contest/200499/my
+==========================================================
+
+Some important string function:
+
+isalnum - Checks whether char is either a decimal digit or an uppercase or lowercase letter. 
+isalpha - Checks whether char is an alphabetic letter.
+isdigit-  Checks whether char is a decimal digit character.
+islower - check lowercase
+isupper - check uppercase
+tolower - convrt to lower
+toupper - convert to upper
+
+===============================================================
+
+Literal :
+long long int - LL
+unsigned long long int - ULL
+==========================================================
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+struct HASH{
+  size_t operator()(const pair<int,int>&x)const{
+    return ((long long)x.first)^(((long long)x.second)<<32);
+  }
+};
+
+unordered_map<pair<int,int>,int,HASH>m;
+
+int main(){
+  auto T=clock();
+  for(int i=0;i<20000;i++)
+    m[make_pair (1, i)] = i;
+  cout<<double(clock()-T)/CLOCKS_PER_SEC<<'\n';
+}
+
+//fast
+unordered_map<int,int>mp;
+mp.reserve(size);
+mp.max_load_factor(0.25);
