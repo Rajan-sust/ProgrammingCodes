@@ -15,7 +15,7 @@ g++ -std=c++11 filename.cpp
 ./a.out < inputfilename.txt > outputfilename.txt
 ```
 
-# Resorces
+# Resources
 
 1. [Topcoder-standard-template-library-part-1](https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-1/)
 
