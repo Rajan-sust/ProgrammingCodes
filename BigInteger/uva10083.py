@@ -2,7 +2,7 @@ from sys import stdin
 import math
 
 
-def exp(a,x):
+def exp(a,x) :
     if x == 1 :
         return a
     elif x%2 == 1 :
