@@ -22,14 +22,9 @@ vector<vector<int> > Solution::threeSum(vector<int>& A)
 
     for (int i = 0; i < len - 1; i++) {
         for (int j = i + 1; j < len; j++) {
-            int x = num[i];
-            int y = num[j];
-            int z = -(x + y);
-            int c = 0;
-            if (z == x)
-                c++;
-            if (z == y)
-                c++;
+            int x = num[i],y = num[j],z = -(x+y),c = 0;
+            if (z == x) c++;
+            if (z == y) c++;
 
             auto it = mp.find(z);
 
