@@ -26,16 +26,11 @@ void insertLast(int x) {
 void doTraverse() {
 
     Node *it = head;
-
-    if(it==NULL)return;
-
-    while(it->next!=NULL) {
+    while(it!=NULL) {
 
         cout<<it->val<<endl;
         it = it->next;
     }
-
-    cout<<it->val<<endl;
 
     return;
 }
