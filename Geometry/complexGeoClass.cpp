@@ -29,6 +29,16 @@ pt intersection(pt a, pt b, pt p, pt q) {
   return (c1 * q - c2 * p) / (c1 - c2); /* undefined if parallel */
 }
 
+/* strictly inside in polgon 
+Let p1, ..., pn be points of polygon in clockwise order.
+Now you're given point q and have to check whether it lies in polygon. 
+At first check that it lies in angle formed by points p2, p1, pn. 
+If that's false, then answer for sure is no. 
+Otherwise let's notice that function "f(i) =  is it true that triplet (p1, pi, q) is right-orientated" is monotone (i.e. it's always true at first, then always false).
+Do binary search on i checking the condition using orientated triangle area.
+After you've found the first i such that triplet (p1, pi, q) is left-orientated, check that q is in triangle p1, pi - 1, i. Done!
+*/
+
 
 bool point_in_convexpoly(const vector<pt> &v,const pt &p)
 {
