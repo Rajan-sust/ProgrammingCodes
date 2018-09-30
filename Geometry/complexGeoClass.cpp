@@ -29,6 +29,31 @@ pt intersection(pt a, pt b, pt p, pt q) {
   return (c1 * q - c2 * p) / (c1 - c2); /* undefined if parallel */
 }
 
+
+bool point_in_convexpoly(const vector<pt> &v,const pt &p)
+{
+	int lo = 1,hi = int(v.size())-1;
+
+	while(lo<=hi) {
+		int mid = (lo+hi)>>1;
+		if(cross(v[0],v[mid],p)<0) {
+			hi = mid - 1;
+		}else{
+			lo = mid + 1;
+		}
+	} 
+
+	hi+=1; 
+
+	ll area = cross_val(p,v[0],v[hi]) + cross_val(p,v[0],v[hi-1]) + cross_val(p,v[hi],v[hi-1]);
+	ll tri_area = cross_val(v[0],v[hi],v[hi-1]);
+
+	if(area==tri_area)
+		return (cross(p,v[hi],v[hi-1])==0)?false:true;
+
+	return false;
+}
+
 int main()
 {
 	
