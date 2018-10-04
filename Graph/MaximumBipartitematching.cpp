@@ -2,10 +2,6 @@
 using namespace std;
 
 #define debug(x) cout<<#x<<" is "<<(x)<<'\n'
-
-
-
-
 const int mx = 1e4 + 1;
 
 
@@ -13,9 +9,6 @@ vector < int > edges[mx];
 bitset< mx > vis;
 int matched[mx];
 int N;
-
-
-
 
 int bpm(int u) {
 
@@ -43,8 +36,6 @@ int matching() {
 
    return cnt;
 }
-
-
 void clear(int n) {
 	
     for(int i=0;i<=n;i++)
