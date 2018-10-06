@@ -1,3 +1,8 @@
+/*
+http://codeforces.com/gym/100753/submission/20797725
+*/
+
+
 #include <bits/stdc++.h>
 #define fore(i,a,n) for(int i = a,to = n;i<to;i++)
 #define fst first
